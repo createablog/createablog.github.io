@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    Handlebar demo
+  
+</title>
+<!-- Latest compiled and minified CSS -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<script src="js/handlebars-v1.3.0.js"></script>
+
+<script id="entry-template" type="text/x-handlebars-template">
+<div class="entry">
+  <h1>{{title}}</h1>
+  <div class="body">
+    {{body}}
+  </div>
+</div>
+</script>
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+<script>
+function compileMe()
+{
+var temp = $("#entry-template")
+	var source   = $("#entry-template").html();
+	var template = Handlebars.compile(source);
+	var context = {title: "My New Post", body: "This is my first post!"}
+	var html    = template(context);
+	alert(html);
+	
+	return false;
+}
+</script>
+
+  </head>
+  <body>
+   
+	<div class="container">
+
+        <h2 class="form-signin-heading">Create A Blog</h2>
+		 <button class="btn btn-lg btn-primary btn-block"  onclick='return compileMe();'>Start</button>    
+		 <br />   
+
+
+  </body>
+</html>

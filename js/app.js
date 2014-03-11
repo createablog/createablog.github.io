@@ -10,6 +10,11 @@ function authorize()
 		
 		var repo = github.getRepo("nielsschroyen", "nielsschroyen.github.io");
 		
+		repo.write('master', 'posts/test.html', 'test my writing', 'Update test.html post', function(err) {
+			alert(err);
+		});
+		
+		
 		repo.read('master', 'model/model.json', function(err, data) {
 		 alert(data);
 		});
