@@ -1,14 +1,16 @@
-function authorize()
+function authorize(name, pw)
 {
+ var name =	$('#nameField').val();
+ var pw =	$('#pwField').val();
 	var github = new Github({
-  username: "nielsschroyen",
-  password: "Hivvd13d",
+  username: name,
+  password: pw,
   auth: "basic"
 		});
 		
 		
 		
-		var repo = github.getRepo("nielsschroyen", "nielsschroyen.github.io");
+		var repo = github.getRepo(name, name+".github.io");
 		
 		repo.write('master', 'posts/test.html', 'test my writing', 'Update test.html post', function(err) {
 			alert(err);
@@ -29,4 +31,20 @@ function authorize()
 		});
 	
 	return false;
+}
+
+function getPosts()
+{
+	var github = new Github({
+	auth: "basic"
+		});
+		
+		var repo = github.getRepo("nielsschroyen", "nielsschroyen.github.io");
+				
+		repo.read('master', 'model/model.json', function(err, data) {
+		
+		alert(data);
+		 
+		});	
+		
 }
